@@ -1,16 +1,17 @@
 var tableBody = document.getElementById("repo-table");
 var fetchButton = document.getElementById("fetch-button");
 var submitBtn = document.getElementById("searchBtn");
-var searchCity = document.getElementById("");
+var searchCity = document.getElementById("searchCity");
 var cityNameInput = document.getElementById("cityInput");
 function getLatAndLon(){
 console.log("click reg")
 searchCity = cityNameInput.value;
 console.log("you searched for" + searchCity)
+getApi(searchCity)
 }
 
 function getApi() {
-  var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key"
+  var requestUrl = "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}"
   fetch(requestUrl)
     .then(function (response) {
       return response.json()
@@ -40,4 +41,4 @@ function getApi() {
 }
 
 submitBtn.addEventListener("click", getLatAndLon);
-fetchButton.addEventListener("click", getApi);
+// fetchButton.addEventListener("click", getApi);
